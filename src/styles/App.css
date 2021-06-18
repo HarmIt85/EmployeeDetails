@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.body-bg {
+  background: #282c34;
+  color: #ffffff;
+  font-size: 14px;
+  min-height: 100vh;
+}
+.common-title {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 0px;
+  border-bottom: 1px dashed #ffffff;
+  text-transform: uppercase;
+  font-weight: normal;
+}
