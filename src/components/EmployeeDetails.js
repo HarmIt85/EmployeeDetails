@@ -3,7 +3,6 @@ import EmployeeDashboard from './EmployeeDashboard';
 
 function EmployeeDetails() {
   const employeeData = JSON.parse(localStorage.getItem('employeeData'));
-  const employeeDataArr = employeeData.split(',');
 
   return (
     <div>
@@ -11,15 +10,16 @@ function EmployeeDetails() {
         <div className="common-title">Employee Details</div>
         {employeeData ? (
           <div id="employeeDataContainer">
-            <div class="data-table">
+            <div className="data-table">
               <div class="data-table-heading">
-                <div class="data-table-heading-col" />
-                <div class="data-table-heading-col">First Name</div>
-                <div class="data-table-heading-col">Last Name</div>
-                <div class="data-table-heading-col">Experience</div>
-                <div class="data-table-heading-col">Salary</div>
+                <div className="data-table-heading-col" />
+                <div className="data-table-heading-col">First Name</div>
+                <div className="data-table-heading-col">Last Name</div>
+                <div className="data-table-heading-col">Experience</div>
+                <div className="data-table-heading-col">Salary</div>
               </div>
-              {employeeDataArr.map((employee, index) => (
+
+              {employeeData.employees.map((employee, index) => (
                 <EmployeeDashboard employee={employee} key={index} />
               ))}
             </div>
