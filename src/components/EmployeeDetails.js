@@ -1,34 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import EmployeeDashboard from './EmployeeDashboard';
 
-function EmployeeDetails() {
-  const employeeData = JSON.parse(localStorage.getItem('employeeData'));
+class EmployeeDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      employeedatas: []
+    };
+  }
+  componentDidMount() {
+    this.setState({
+      employeedatas: JSON.parse(localStorage.getItem('employeeData'))
+    });
+    console.log(JSON.parse(localStorage.getItem('employeeData')));
+  }
 
-  return (
-    <div>
-      <div className="body-bg">
-        <div className="common-title">Employee Details</div>
-        {employeeData ? (
-          <div id="employeeDataContainer">
-            <div className="data-table">
-              <div class="data-table-heading">
-                <div className="data-table-heading-col" />
-                <div className="data-table-heading-col">First Name</div>
-                <div className="data-table-heading-col">Last Name</div>
-                <div className="data-table-heading-col">Experience</div>
-                <div className="data-table-heading-col">Salary</div>
-              </div>
-
-              {employeeData.employees.map((employee, index) => (
-                <EmployeeDashboard employee={employee} key={index} />
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div />
-        )}
+  render() {
+    return (
+      <div>
+        <div className="body-bg">
+          <div className="common-title">Employee Details</div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 export default EmployeeDetails;
